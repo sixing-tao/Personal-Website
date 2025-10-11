@@ -31,19 +31,26 @@ export default function Typewriter({
         } else {
           setCurrentText(fullText.substring(0, currentText.length + 1))
         }
-
-        if (!isDeleting && currentText === fullText) {
-          setTimeout(() => setIsDeleting(true), pauseTime)
-        } else if (isDeleting && currentText === '') {
-          setIsDeleting(false)
-          setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length)
-        }
       },
       isDeleting ? deleteSpeed : speed
     )
 
     return () => clearTimeout(timeout)
-  }, [currentText, isDeleting, currentTextIndex, texts, speed, deleteSpeed, pauseTime])
+  }, [currentText, isDeleting, currentTextIndex, texts, speed, deleteSpeed])
+
+  useEffect(() => {
+    const fullText = texts[currentTextIndex]
+
+    if (!isDeleting && currentText === fullText) {
+      const pauseTimeout = setTimeout(() => {
+        setIsDeleting(true)
+      }, pauseTime)
+      return () => clearTimeout(pauseTimeout)
+    } else if (isDeleting && currentText === '') {
+      setIsDeleting(false)
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length)
+    }
+  }, [currentText, isDeleting, currentTextIndex, texts, pauseTime])
 
   return (
     <span className={className}>
