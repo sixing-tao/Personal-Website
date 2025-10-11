@@ -1,9 +1,10 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
+  title: 'Sixing Tao',
   author: 'Sixing Tao',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
+  headerTitle: '',
+  description: '',
+  lastUpdated: 'Oct 2025',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
@@ -11,13 +12,13 @@ const siteMetadata = {
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  x: 'https://twitter.com/x',
+  email: 'jwwwt7777@gmail.com',
+  github: 'https://github.com/sixing-tao',
+  x: 'https://x.com/j0nathanta0',
   // twitter: 'https://twitter.com/Twitter',
   // facebook: 'https://facebook.com',
   // youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/sixing-tao/',
   // threads: 'https://www.threads.net',
   // instagram: 'https://www.instagram.com',
   // medium: 'https://medium.com',
@@ -48,11 +49,6 @@ const siteMetadata = {
     // googleAnalytics: {
     //   googleAnalyticsId: '', // e.g. G-XXXXXXX
     // },
-  },
-  newsletter: {
-    // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus, beehive
-    // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
   },
   comments: {
     // If you want to use an analytics provider you have to add it to the

@@ -6,7 +6,6 @@ import { allAuthors } from 'contentlayer/generated'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
-import NewsletterForm from 'pliny/ui/NewsletterForm'
 
 const MAX_DISPLAY = 5
 
@@ -26,7 +25,7 @@ export default function Home({ posts }) {
         <div className="space-y-2 pt-2 pb-8 md:space-y-5">
           <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
             {/* Profile Card - Shows first on mobile, right on desktop */}
-            <div className="flex flex-col items-center justify-start space-x-2 pt-0 xl:order-2 xl:col-span-1 xl:pt-0">
+            <div className="flex flex-col items-center justify-start space-x-2 pt-0 xl:order-2 xl:col-span-1 xl:justify-center xl:pt-1">
               <ProfileCard />
             </div>
 
@@ -37,7 +36,7 @@ export default function Home({ posts }) {
                 <h1 className="text-5xl leading-tight font-extrabold tracking-tight sm:text-6xl md:text-7xl md:leading-tight">
                   <span className="text-green-500 dark:text-green-400">howdy,</span>{' '}
                   <span className="text-yellow-500 dark:text-yellow-400">fellow!</span>{' '}
-                  <span className="text-4xl">👋🏻</span>
+                  <span className="text-yellow-500 dark:text-yellow-400">👋🏻</span>
                 </h1>
                 <p className="mt-4 text-2xl leading-9 font-medium text-gray-900 dark:text-gray-100">
                   i'm {name} - a{' '}
@@ -66,11 +65,6 @@ export default function Home({ posts }) {
           {/* Content placeholder - you can add other sections here */}
         </div>
       </div>
-      {siteMetadata.newsletter?.provider && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
-        </div>
-      )}
     </>
   )
 }

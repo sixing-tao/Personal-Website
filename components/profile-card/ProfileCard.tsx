@@ -56,7 +56,7 @@ export function ProfileCard() {
       <div
         style={style}
         className={clsx(
-          'flex flex-col overflow-hidden transition-all duration-200 ease-out md:rounded-lg',
+          'flex flex-col overflow-hidden rounded-lg transition-all duration-200 ease-out',
           'bg-white shadow-lg dark:bg-gray-800 dark:shadow-gray-900',
           'outline-1 outline-gray-100 outline-solid dark:outline-gray-600'
         )}
@@ -74,6 +74,15 @@ export function ProfileCard() {
           />
         </div>
         <ProfileCardInfo />
+        {/* Mobile Call-to-Action */}
+        <div className="block px-4 py-1 text-center md:hidden">
+          <a
+            href="mailto:jwwwt7777@gmail.com"
+            className="text-primary-500 decoration-primary-500 hover:text-primary-400 hover:decoration-primary-400 text-xs font-medium whitespace-nowrap underline decoration-2 underline-offset-2 transition-colors"
+          >
+            [Seeking Summer 2026 PM/SWE internship]
+          </a>
+        </div>
         <span className="h-1.5 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600" />
       </div>
     </div>
