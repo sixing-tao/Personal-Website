@@ -82,6 +82,13 @@ export function ProfileCard() {
           >
             [Seeking Summer 2026 PM/SWE internship]
           </a>
+          <br />
+          <a
+            href="/resume.pdf"
+            className="text-primary-500 decoration-primary-500 hover:text-primary-400 hover:decoration-primary-400 text-xs font-medium whitespace-nowrap underline decoration-2 underline-offset-2 transition-colors"
+          >
+            [View Resume]
+          </a>
         </div>
         <span className="h-1.5 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600" />
       </div>
