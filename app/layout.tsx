@@ -69,8 +69,48 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <link
         rel="apple-touch-icon"
+        sizes="180x180"
+        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="152x152"
+        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="144x144"
+        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="120x120"
+        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="114x114"
+        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+      />
+      <link
+        rel="apple-touch-icon"
         sizes="76x76"
-        href={`${basePath}/static/favicons/apple-touch-icon.png`}
+        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="72x72"
+        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="60x60"
+        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="57x57"
+        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="icon"
@@ -85,6 +125,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         href={`${basePath}/static/favicons/favicon-16x16.png?v=${Date.now()}`}
       />
       <link rel="icon" href={`${basePath}/favicon.ico?v=${Date.now()}`} />
+      <link rel="icon" href={`${basePath}/favicon-new.ico?v=${Date.now()}`} />
+      <link
+        rel="icon"
+        type="image/png"
+        href={`${basePath}/static/favicons/safari-favicon.png?v=${Date.now()}`}
+      />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
       <link
         rel="mask-icon"
@@ -92,6 +138,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         color="#199B40"
       />
       <meta name="msapplication-TileColor" content="#000000" />
+      <meta
+        name="msapplication-TileImage"
+        content={`${basePath}/static/favicons/mstile-150x150.png?v=${Date.now()}`}
+      />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="apple-mobile-web-app-title" content="Sixing Tao" />
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
