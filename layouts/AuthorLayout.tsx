@@ -34,14 +34,16 @@ export default function AuthorLayout({ children, content }: Props) {
             <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
             <div className="text-gray-500 dark:text-gray-400">{company}</div>
             <div className="flex space-x-3 pt-6">
-              <SocialIcon
-                kind="mail"
-                href={`mailto:${email.replace(/\s*\[at\]\s*/g, '@').replace(/\s*\[dot\]\s*/g, '.')}`}
-              />
-              <SocialIcon kind="github" href={github} />
-              <SocialIcon kind="linkedin" href={linkedin} />
-              <SocialIcon kind="x" href={twitter} />
-              <SocialIcon kind="bluesky" href={bluesky} />
+              {email && (
+                <SocialIcon
+                  kind="mail"
+                  href={`mailto:${email.replace(/\s*\[at\]\s*/g, '@').replace(/\s*\[dot\]\s*/g, '.')}`}
+                />
+              )}
+              {github && <SocialIcon kind="github" href={github} />}
+              {linkedin && <SocialIcon kind="linkedin" href={linkedin} />}
+              {twitter && <SocialIcon kind="x" href={twitter} />}
+              {bluesky && <SocialIcon kind="bluesky" href={bluesky} />}
             </div>
           </div>
           <div className="prose dark:prose-invert max-w-none pt-8 pb-8 xl:col-span-2">
