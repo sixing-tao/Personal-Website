@@ -1,6 +1,7 @@
-const { withContentlayer } = require('next-contentlayer2')
+import { withContentlayer } from 'next-contentlayer2'
+import bundleAnalyzer from '@next/bundle-analyzer'
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })
 
@@ -61,7 +62,7 @@ const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
-module.exports = () => {
+const nextConfig = () => {
   const plugins = [withContentlayer, withBundleAnalyzer]
   return plugins.reduce((acc, next) => next(acc), {
     output,
@@ -95,7 +96,14 @@ module.exports = () => {
         use: ['@svgr/webpack'],
       })
 
+      // Suppress TypeScript project references warning
+      config.infrastructureLogging = {
+        level: 'error',
+      }
+
       return config
     },
   })
 }
+
+export default nextConfig

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "incremental": true,
     "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -28,7 +27,8 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
