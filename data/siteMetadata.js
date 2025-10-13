@@ -12,7 +12,8 @@ const siteMetadata = {
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'jwwwt7777@gmail.com',
+  email: 'jwwwt7777 [at] gmail [dot] com',
+  emailLink: 'jwwwt7777@gmail.com', // 用于mailto链接的真实邮箱
   github: 'https://github.com/sixing-tao',
   x: 'https://x.com/j0nathanta0',
   // twitter: 'https://twitter.com/Twitter',

@@ -123,7 +123,7 @@ export function ProfileCardInfo() {
           </div>
           <a
             className="transition-colors hover:text-blue-600 hover:underline dark:hover:text-blue-400"
-            href={`mailto:${siteMetadata.email}`}
+            href={`mailto:${siteMetadata.emailLink}`}
           >
             {siteMetadata.email}
           </a>
@@ -131,7 +131,7 @@ export function ProfileCardInfo() {
         {/* Call-to-Action */}
         <div className="mt-3 flex flex-col gap-2 text-left">
           <a
-            href="mailto:jwwwt7777@gmail.com"
+            href={`mailto:${siteMetadata.emailLink}`}
             className="text-primary-500 decoration-primary-500 hover:text-primary-400 hover:decoration-primary-400 text-xs font-medium whitespace-nowrap underline decoration-2 underline-offset-2 transition-colors"
           >
             [Seeking Summer 2026 PM/SWE internship]

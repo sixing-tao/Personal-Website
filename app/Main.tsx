@@ -23,7 +23,7 @@ export default function Home({ posts }) {
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         {/* Hero Section */}
         <div className="space-y-2 pt-2 pb-8 md:space-y-5">
-          <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
+          <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:space-y-0 xl:gap-x-8">
             {/* Profile Card - Shows first on mobile, right on desktop */}
             <div className="flex flex-col items-center justify-start space-x-2 pt-0 xl:order-2 xl:col-span-1 xl:justify-center xl:pt-1">
               <ProfileCard />
@@ -57,13 +57,13 @@ export default function Home({ posts }) {
             </div>
           </div>
         </div>
-        {/* Latest Posts Section */}
-        <div className="pt-8">
+        {/* Latest Posts Section - commented out during build */}
+        {/* <div className="pt-8">
           <h2 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 dark:text-gray-100">
             Latest Posts
           </h2>
-          {/* Content placeholder - you can add other sections here */}
-        </div>
+          Content placeholder - you can add other sections here
+        </div> */}
       </div>
     </>
   )
