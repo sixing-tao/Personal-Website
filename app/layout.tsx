@@ -70,47 +70,47 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+        href={`${basePath}/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="apple-touch-icon"
         sizes="152x152"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+        href={`${basePath}/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="apple-touch-icon"
         sizes="144x144"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+        href={`${basePath}/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="apple-touch-icon"
         sizes="120x120"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+        href={`${basePath}/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="apple-touch-icon"
         sizes="114x114"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+        href={`${basePath}/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="apple-touch-icon"
         sizes="76x76"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+        href={`${basePath}/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="apple-touch-icon"
         sizes="72x72"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+        href={`${basePath}/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="apple-touch-icon"
         sizes="60x60"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+        href={`${basePath}/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="apple-touch-icon"
         sizes="57x57"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=${Date.now()}`}
+        href={`${basePath}/apple-touch-icon.png?v=${Date.now()}`}
       />
       <link
         rel="icon"

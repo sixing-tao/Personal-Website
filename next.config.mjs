@@ -90,7 +90,7 @@ const nextConfig = () => {
         },
       ]
     },
-    webpack: (config, options) => {
+    webpack: (config) => {
       config.module.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
@@ -100,6 +100,10 @@ const nextConfig = () => {
       config.infrastructureLogging = {
         level: 'error',
       }
+
+      // Handle pdfjs-dist webpack issues for stable version
+      config.resolve.alias.canvas = false
+      config.resolve.alias.encoding = false
 
       return config
     },

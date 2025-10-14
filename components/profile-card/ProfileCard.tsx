@@ -85,7 +85,7 @@ export function ProfileCard() {
           </a>
           <br />
           <a
-            href="/resume.pdf"
+            href="/resume"
             className="text-primary-500 decoration-primary-500 hover:text-primary-400 hover:decoration-primary-400 text-xs font-medium whitespace-nowrap underline decoration-2 underline-offset-2 transition-colors"
           >
             [View Resume]
