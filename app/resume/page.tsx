@@ -72,8 +72,8 @@ export default async function Page() {
         </button>
       </div>
       <ResumeWrapper filename={filename} />
-      <div className="mt-1 flex w-full flex-row justify-end">
-        <span className="text-sm font-medium text-gray-700">Version: OCT 25</span>
+      <div className="mt-0 flex w-full flex-row justify-end">
+        <span className="text-primary text-sm font-medium">Version: OCT 25</span>
       </div>
     </div>
   )
