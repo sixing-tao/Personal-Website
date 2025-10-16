@@ -81,7 +81,8 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
   const params = await props.params
   const slug = decodeURI(params.slug.join('/'))
   // Filter out drafts in production
-  const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
+  const allPosts = allCoreContent(sortPosts(allBlogs))
+  const sortedCoreContents = allPosts.filter((post) => !post.draft)
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
   if (postIndex === -1) {
     return notFound()

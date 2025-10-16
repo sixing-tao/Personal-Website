@@ -1,13 +1,35 @@
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import { slug } from 'github-slugger'
-import tagData from 'app/tag-data.json'
+import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import { allBlogs } from 'contentlayer/generated'
 import { genPageMetadata } from 'app/seo'
+import { CoreContent } from 'pliny/utils/contentlayer'
+import type { Blog } from 'contentlayer/generated'
 
 export const metadata = genPageMetadata({ title: 'Tags', description: 'Things I blog about' })
 
+// 实时计算标签统计的函数
+function calculateTagCounts(posts: CoreContent<Blog>[]) {
+  const tagCount: Record<string, number> = {}
+  posts.forEach((post) => {
+    if (post.tags && !post.draft) {
+      post.tags.forEach((tag: string) => {
+        const formattedTag = slug(tag)
+        if (formattedTag in tagCount) {
+          tagCount[formattedTag] += 1
+        } else {
+          tagCount[formattedTag] = 1
+        }
+      })
+    }
+  })
+  return tagCount
+}
+
 export default async function Page() {
-  const tagCounts = tagData as Record<string, number>
+  const posts = allCoreContent(sortPosts(allBlogs))
+  const tagCounts = calculateTagCounts(posts)
   const tagKeys = Object.keys(tagCounts)
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
   return (

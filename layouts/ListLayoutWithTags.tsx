@@ -7,8 +7,27 @@ import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
+// import NewsletterForm from '@/components/NewsletterForm' // Commented out - subscription disabled
 import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/tag-data.json'
+// import tagData from 'app/tag-data.json' // 不再使用静态标签数据
+
+// 实时计算标签统计的函数
+function calculateTagCounts(posts: CoreContent<Blog>[]) {
+  const tagCount: Record<string, number> = {}
+  posts.forEach((post) => {
+    if (post.tags && !post.draft) {
+      post.tags.forEach((tag) => {
+        const formattedTag = slug(tag)
+        if (formattedTag in tagCount) {
+          tagCount[formattedTag] += 1
+        } else {
+          tagCount[formattedTag] = 1
+        }
+      })
+    }
+  })
+  return tagCount
+}
 
 interface PaginationProps {
   totalPages: number
@@ -73,7 +92,7 @@ export default function ListLayoutWithTags({
   pagination,
 }: ListLayoutProps) {
   const pathname = usePathname()
-  const tagCounts = tagData as Record<string, number>
+  const tagCounts = calculateTagCounts(posts)
   const tagKeys = Object.keys(tagCounts)
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
 
@@ -163,6 +182,11 @@ export default function ListLayoutWithTags({
             {pagination && pagination.totalPages > 1 && (
               <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
             )}
+
+            {/* Newsletter Subscription Section - Commented out */}
+            {/* <div className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-700">
+              <NewsletterForm title="Stay Updated" />
+            </div> */}
           </div>
         </div>
       </div>
