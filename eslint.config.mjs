@@ -14,9 +14,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: [
-      'public/static/js/pdf.worker.min.js',
-    ],
+    ignores: ['public/static/js/pdf.worker.min.js'],
   },
   js.configs.recommended,
   ...compat.extends(
