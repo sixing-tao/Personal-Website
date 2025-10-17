@@ -36,7 +36,7 @@ const Header = () => {
       </Link>
       <div className="flex items-center space-x-4 leading-5 sm:-mr-6 sm:space-x-6">
         {/* Navigation links - only Blog */}
-        <div className="no-scrollbar hidden max-w-40 items-center gap-x-4 overflow-x-auto sm:flex md:max-w-72 lg:max-w-96">
+        <div className="no-scrollbar flex max-w-40 items-center gap-x-4 overflow-x-auto md:max-w-72 lg:max-w-96">
           <Link
             href="/blog"
             className="hover:text-primary-500 dark:hover:text-primary-400 m-1 font-medium text-gray-900 dark:text-gray-100"
@@ -46,7 +46,7 @@ const Header = () => {
         </div>
         {/* <SearchButton /> */}
         <ThemeSwitch />
-        {/* Mobile navigation - commented out */}
+        {/* Mobile navigation - temporarily commented out */}
         {/* <MobileNav /> */}
       </div>
     </header>
