@@ -134,7 +134,7 @@ export function ProfileCardInfo() {
             href={`mailto:${siteMetadata.emailLink}`}
             className="text-primary-500 decoration-primary-500 hover:text-primary-400 hover:decoration-primary-400 text-xs font-medium whitespace-nowrap underline decoration-2 underline-offset-2 transition-colors"
           >
-            [Seeking Summer 2026 PM/SWE internship]
+            [Seeking Summer 2026 Research Internship]
           </a>
           <a
             href="/resume"
