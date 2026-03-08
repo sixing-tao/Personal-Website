@@ -34,14 +34,14 @@ export default function Home({ posts }) {
               {/* Greeting */}
               <div>
                 <h1 className="text-5xl leading-tight font-extrabold tracking-tight sm:text-6xl md:text-7xl md:leading-tight">
-                  <span className="text-green-500 dark:text-green-400">howdy,</span>{' '}
-                  <span className="text-yellow-500 dark:text-yellow-400">fellow!</span>{' '}
+                  <span className="text-green-500 dark:text-green-400">hi,</span>{' '}
+                  <span className="text-yellow-500 dark:text-yellow-400">there!</span>{' '}
                   <span className="text-yellow-500 dark:text-yellow-400">👋🏻</span>
                 </h1>
                 <p className="mt-4 text-2xl leading-9 font-medium text-gray-900 dark:text-gray-100">
                   i'm {name} - a{' '}
                   <Typewriter
-                    texts={['student researcher', 'software engineer', 'product strategist']}
+                    texts={['student researcher', 'software engineer', 'product builder']}
                     speed={100}
                     deleteSpeed={50}
                     pauseTime={2000}

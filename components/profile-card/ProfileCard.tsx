@@ -5,7 +5,6 @@ import type React from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Image from '@/components/Image'
 import { ProfileCardInfo } from '@/components/profile-card/ProfileCardInfo'
-import siteMetadata from '@/data/siteMetadata'
 
 export function ProfileCard() {
   const ref = useRef<HTMLDivElement>(null)
@@ -75,22 +74,6 @@ export function ProfileCard() {
           />
         </div>
         <ProfileCardInfo />
-        {/* Mobile Call-to-Action */}
-        <div className="block px-4 py-1 text-center md:hidden">
-          <a
-            href={`mailto:${siteMetadata.emailLink}`}
-            className="text-primary-500 decoration-primary-500 hover:text-primary-400 hover:decoration-primary-400 text-xs font-medium whitespace-nowrap underline decoration-2 underline-offset-2 transition-colors"
-          >
-            [Seeking Summer 2026 Research Internship]
-          </a>
-          <br />
-          <a
-            href="/resume"
-            className="text-primary-500 decoration-primary-500 hover:text-primary-400 hover:decoration-primary-400 text-xs font-medium whitespace-nowrap underline decoration-2 underline-offset-2 transition-colors"
-          >
-            [View Resume]
-          </a>
-        </div>
         <span className="h-1.5 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600" />
       </div>
     </div>
