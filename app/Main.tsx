@@ -88,7 +88,16 @@ export default function Home({ posts: _posts }) {
 
       {/* ── Desktop: two-column layout ── */}
       <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-10">
-        {/* Left sidebar */}
+        {/* Left: bio content */}
+        <div className="min-w-0 flex-1">
+          {/* Welcome heading */}
+          <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-gray-100">Welcome! 👋🏻</h2>
+          <div className="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 [&>*:first-child]:mt-0">
+            <MDXLayoutRenderer code={author.body.code} />
+          </div>
+        </div>
+
+        {/* Right sidebar */}
         <div className="hidden w-52 flex-shrink-0 flex-col items-start gap-3 md:flex">
           {/* Square photo */}
           <div className="relative aspect-square w-full overflow-hidden rounded-xl">
@@ -173,15 +182,6 @@ export default function Home({ posts: _posts }) {
               <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={4} />
               <SocialIcon kind="x" href={siteMetadata.x} size={4} />
             </div>
-          </div>
-        </div>
-
-        {/* Right: bio content */}
-        <div className="min-w-0 flex-1">
-          {/* Welcome heading */}
-          <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">Welcome! 👋🏻</h2>
-          <div className="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 [&>*:first-child]:mt-0">
-            <MDXLayoutRenderer code={author.body.code} />
           </div>
         </div>
       </div>
