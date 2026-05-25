@@ -1,70 +1,188 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import Typewriter from '@/components/Typewriter'
-import { ProfileCard } from '@/components/profile-card/ProfileCard'
+import Image from '@/components/Image'
+import SocialIcon from '@/components/social-icons'
 import { allAuthors } from 'contentlayer/generated'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import siteMetadata from '@/data/siteMetadata'
-import { formatDate } from 'pliny/utils/formatDate'
 
-const MAX_DISPLAY = 5
-
-export default function Home({ posts }) {
+export default function Home({ posts: _posts }) {
   const author = allAuthors.find((p) => p.slug === 'default')
 
   if (!author) {
     return <div>Author not found</div>
   }
 
-  const { name, avatar, occupation, company, email, github, twitter, linkedin } = author
-
   return (
-    <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        {/* Hero Section */}
-        <div className="space-y-2 pt-2 pb-8 md:space-y-5">
-          <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:space-y-0 xl:gap-x-8">
-            {/* Profile Card - Shows first on mobile, right on desktop */}
-            <div className="flex flex-col items-center justify-start space-x-2 pt-0 xl:order-2 xl:col-span-1 xl:justify-center xl:pt-1">
-              <ProfileCard />
-            </div>
+    <div className="pt-6 pb-16">
+      {/* ── Mobile header: fully centered ── */}
+      <div className="mb-6 flex flex-col items-center text-center md:hidden">
+        {/* Photo */}
+        <div className="relative h-28 w-28 overflow-hidden rounded-full">
+          <Image
+            src={author.avatar ?? '/static/images/avatar.png'}
+            alt={author.name}
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'center top' }}
+          />
+        </div>
 
-            {/* Left Column: Greeting and Content */}
-            <div className="xl:col-span-2">
-              {/* Greeting */}
-              <div>
-                <h1 className="text-5xl leading-tight font-extrabold tracking-tight sm:text-6xl md:text-7xl md:leading-tight">
-                  <span className="text-green-500 dark:text-green-400">hi,</span>{' '}
-                  <span className="text-yellow-500 dark:text-yellow-400">there!</span>{' '}
-                  <span className="text-yellow-500 dark:text-yellow-400">👋🏻</span>
-                </h1>
-                <p className="mt-4 text-2xl leading-9 font-medium text-gray-900 dark:text-gray-100">
-                  i'm {name} - a{' '}
-                  <Typewriter
-                    texts={['student researcher', 'software engineer', 'product builder']}
-                    speed={100}
-                    deleteSpeed={50}
-                    pauseTime={2000}
-                    className="text-primary-500"
-                  />
+        {/* Name */}
+        <h1 className="mt-4 text-3xl font-bold text-gray-900 dark:text-gray-100">{author.name}</h1>
+
+        {/* Affiliations */}
+        <div className="mt-2 flex flex-col gap-0.5">
+          {author.occupation && (
+            <p className="text-sm leading-tight text-[#374151] dark:text-[#D1D5DB]">
+              <a
+                href="https://www.cs.washington.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+              >
+                {author.occupation}
+              </a>
+            </p>
+          )}
+          {author.company && (
+            <p className="text-sm leading-tight text-[#46505F] dark:text-[#A9B0BA]">
+              <a
+                href="https://www.washington.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+              >
+                {author.company}
+              </a>
+            </p>
+          )}
+          <p className="text-sm leading-tight text-[#5E6675] dark:text-[#848B97]">
+            <a
+              href="https://depts.washington.edu/acelab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+            >
+              ACE Lab
+            </a>
+            {' · '}
+            <a
+              href="https://palettelab-nus.github.io/PaletteLab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+            >
+              Palette Lab
+            </a>
+          </p>
+        </div>
+
+        {/* Separator + icons */}
+        <hr className="mt-4 mb-3 w-full border-gray-200 dark:border-gray-700" />
+        <div className="flex gap-5">
+          <SocialIcon kind="mail" href={`mailto:sixint@uw.edu`} size={4} />
+          <SocialIcon kind="github" href={siteMetadata.github} size={4} />
+          <SocialIcon kind="googlescholar" href={siteMetadata.googlescholar} size={4} />
+          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={4} />
+          <SocialIcon kind="x" href={siteMetadata.x} size={4} />
+        </div>
+      </div>
+
+      {/* ── Desktop: two-column layout ── */}
+      <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-10">
+        {/* Left sidebar */}
+        <div className="hidden w-52 flex-shrink-0 flex-col items-start gap-3 md:flex">
+          {/* Square photo */}
+          <div className="relative aspect-square w-full overflow-hidden rounded-xl">
+            <Image
+              src={author.avatar ?? '/static/images/avatar.png'}
+              alt={author.name}
+              fill
+              style={{ objectFit: 'cover', objectPosition: 'center top' }}
+              className="rounded-xl"
+            />
+          </div>
+
+          {/* Name + affiliation: grouped tight */}
+          <div className="flex flex-col gap-0.5">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{author.name}</h1>
+            <div className="flex flex-col gap-0.5">
+              {author.occupation && (
+                <p className="text-sm leading-tight text-[#374151] dark:text-[#D1D5DB]">
+                  <a
+                    href="https://www.cs.washington.edu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                  >
+                    {author.occupation}
+                  </a>
                 </p>
-              </div>
+              )}
+              {author.company && (
+                <p className="text-sm leading-tight text-[#46505F] dark:text-[#A9B0BA]">
+                  <a
+                    href="https://www.washington.edu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                  >
+                    {author.company}
+                  </a>
+                </p>
+              )}
+              <p className="text-sm leading-tight text-[#5E6675] dark:text-[#848B97]">
+                <a
+                  href="https://depts.washington.edu/acelab/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                >
+                  ACE Lab
+                </a>
+                {' · '}
+                <a
+                  href="https://palettelab-nus.github.io/PaletteLab/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                >
+                  Palette Lab
+                </a>
+              </p>
+            </div>
+          </div>
 
-              {/* Author MDX Content */}
-              <div className="prose dark:prose-invert max-w-none pt-8 pb-8">
-                <MDXLayoutRenderer code={author.body.code} />
-              </div>
+          {/* Separator */}
+          <hr className="w-full border-gray-200 dark:border-gray-700" />
+
+          {/* Social links */}
+          <div className="-mt-1 flex flex-col gap-1.5">
+            {/* Row 1: email icon + explicit address */}
+            <span className="flex items-center gap-1.5">
+              <SocialIcon kind="mail" href="mailto:sixint@uw.edu" size={4} />
+              <a
+                href="mailto:sixint@uw.edu"
+                className="hover:text-primary-500 dark:hover:text-primary-400 text-sm text-gray-700 transition-colors dark:text-gray-200"
+              >
+                sixint[at]uw[dot]edu
+              </a>
+            </span>
+            {/* Row 2: icon-only */}
+            <div className="flex items-center gap-3">
+              <SocialIcon kind="github" href={siteMetadata.github} size={4} />
+              <SocialIcon kind="googlescholar" href={siteMetadata.googlescholar} size={4} />
+              <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={4} />
+              <SocialIcon kind="x" href={siteMetadata.x} size={4} />
             </div>
           </div>
         </div>
-        {/* Latest Posts Section - commented out during build */}
-        {/* <div className="pt-8">
-          <h2 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 dark:text-gray-100">
-            Latest Posts
-          </h2>
-          Content placeholder - you can add other sections here
-        </div> */}
+
+        {/* Right: bio content */}
+        <div className="min-w-0 flex-1">
+          <div className="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 [&>*:first-child]:mt-0">
+            <MDXLayoutRenderer code={author.body.code} />
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }

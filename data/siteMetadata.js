@@ -15,6 +15,7 @@ const siteMetadata = {
   email: 'jwwwt7777 [at] gmail [dot] com',
   emailLink: 'jwwwt7777@gmail.com',
   github: 'https://github.com/sixing-tao',
+  googlescholar: 'https://scholar.google.com/citations?hl=en&user=mRGsUKQAAAAJ',
   x: 'https://x.com/j0nathanta0',
   // twitter: 'https://twitter.com/Twitter',
   // facebook: 'https://facebook.com',
