@@ -178,6 +178,8 @@ export default function Home({ posts: _posts }) {
 
         {/* Right: bio content */}
         <div className="min-w-0 flex-1">
+          {/* Welcome heading */}
+          <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">Welcome! 👋🏻</h2>
           <div className="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 [&>*:first-child]:mt-0">
             <MDXLayoutRenderer code={author.body.code} />
           </div>
